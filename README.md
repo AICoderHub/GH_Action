@@ -22,7 +22,7 @@ Here is a sample step:
     CHECK_PATHS: '/path/to/file/to/modify1,/path/to/file/to/modify1'
 ```
 
-The allowed modes are: `file-enhancer`, `file-generator`, `file-security`, `file-optimizer`, `file-comments`, `file-bugfixer`.
+The allowed modes are: `file-enhancer`, `file-generator`, `file-security`, `file-optimizer`, `file-comments`, `file-bugfixer`, `file-todoer`.
 
 **Note** that the prompt can be a string, a file path (I'll need to be inside the repo) or a URL.
 
@@ -141,6 +141,25 @@ A PR will be generated with the recommended changes.
   uses: AICoderHub/GH_Action
   with:
     INPUT_MODE: 'file-comments'
+    INPUT_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    INPUT_MODEL: 'gpt-4'
+    ORIGIN_BRANCH: 'aicoder'
+    TO_BRANCH: 'main'
+    CHECK_PATHS: '/path/to/file/to/modify'
+```
+
+A PR will be generated with the recommended changes.
+
+</details>
+
+<details>
+  <summary>Fill TODOs in a file</summary>
+
+```yaml
+- name: AICoder GH Action
+  uses: AICoderHub/GH_Action
+  with:
+    INPUT_MODE: 'file-todoer'
     INPUT_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     INPUT_MODEL: 'gpt-4'
     ORIGIN_BRANCH: 'aicoder'
